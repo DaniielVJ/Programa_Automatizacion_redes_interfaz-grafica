@@ -1,0 +1,60 @@
+
+
+Dispositivo 10.0.0.4:
+configure terminal
+Enter configuration commands, one per line.  End with CNTL/Z.
+HOLA_MUNDO(config)#hostname HOLA_MUNDO
+HOLA_MUNDO(config)#router eigrp 1
+HOLA_MUNDO(config-router)#no auto-summary
+HOLA_MUNDO(config-router)#network 0.0.0.0
+HOLA_MUNDO(config-router)#end
+HOLA_MUNDO#
+
+Dispositivo 10.0.0.5:
+configure terminal
+Enter configuration commands, one per line.  End with CNTL/Z.
+HOLA_MUNDO(config)#hostname HOLA_MUNDO
+HOLA_MUNDO(config)#router eigrp 1
+HOLA_MUNDO(config-router)#no auto-summary
+HOLA_MUNDO(config-router)#network 0.0.0.0
+HOLA_MUNDO(config-router)#end
+HOLA_MUNDO#
+
+Dispositivo 10.0.0.4:
+EIGRP-IPv4 Neighbors for AS(1)
+H   Address                 Interface              Hold Uptime   SRTT   RTO  Q  Seq
+                                                   (sec)         (ms)       Cnt Num
+0   10.0.0.5                Gi0/0                    12 00:15:50    1  3000  0  1
+
+Dispositivo 10.0.0.5:
+EIGRP-IPv4 Neighbors for AS(1)
+H   Address                 Interface              Hold Uptime   SRTT   RTO  Q  Seq
+                                                   (sec)         (ms)       Cnt Num
+0   10.0.0.4                Gi0/0                    11 00:15:46    1  3000  0  1
+
+Dispositivo 10.0.0.4:
+write mem
+Building configuration...
+Compressed configuration from 2980 bytes to 1479 bytes[OK]
+HOLA_MUNDO#
+
+Dispositivo 10.0.0.5:
+write mem
+Building configuration...
+Compressed configuration from 2980 bytes to 1483 bytes[OK]
+HOLA_MUNDO#
+
+Dispositivo 10.0.0.1:
+configure terminal
+Enter configuration commands, one per line.  End with CNTL/Z.
+R1_Daniel(config)#hostname PC_DANIEL
+PC_DANIEL(config)#end
+PC_DANIEL#
+
+Dispositivo 10.0.0.1:
+Interface              IP-Address      OK? Method Status                Protocol
+GigabitEthernet0/0/0   unassigned      YES unset  down                  down    
+GigabitEthernet0/0/1   10.0.0.1        YES manual up                    up      
+GigabitEthernet0       unassigned      YES unset  down                  down    
+Vlan1                  unassigned      YES unset  up                    down    
+
